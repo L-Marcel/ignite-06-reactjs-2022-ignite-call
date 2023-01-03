@@ -18,14 +18,12 @@
 
 <br/>
 
-<p>Template for projects using <span>Next.js</span>. For ease of production, <span>tailwind</span> and <span>typescript</span> — which I see as necessary — are installed. As there are cases where conditional styling is much more productive, I also added <span>tw tailwind</span>, a library similar to styled components, but working with tailwind.</p>
-
-<h2>Use case</h2>
-
-<p>I developed my own <span>CLI</span> so that I can streamline certain procedures, including cloning my templates. You can see more about it at: <a href="https://www.npmjs.com/package/@lmarcel/cli" target="__blank__">@lmarcel/cli</a></p>
-
-<p>Otherwise, you can access the <a href="https://www.github.com/l-marcel/next-start" target="__blank__">repository</a> when you need and click on "use the template" (it's a green button, I mean, mine is green). From the command line, you can: </p>
-
-<pre>
-C:\projects> <span>gh</span> repo create next-start --template l-marcel/next-start --public
-</pre>
+<div id="grid">
+  <div id="grid-item">
+    <h2>What did I <span>do</span>?</h2>
+    <p>I developed an app allows people to <span>set up meetings</span> in my spare time, which contains the following features:</p>
+    <ul>
+      <li id="checked"><p>In work...</p></li>
+    </ul>
+  </div>
+</div>

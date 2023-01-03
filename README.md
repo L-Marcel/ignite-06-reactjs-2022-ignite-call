@@ -19,14 +19,12 @@
 
 <br/>
 
-<p>Modelo para projetos que utilizam <span>Next.js</span>. Para facilitar a produção, deixei o <span>tailwind</span> e o <span>typescript</span> — que vejo como necessário — instalados. Como existem casos onde a estilização condicional é muito mais produtiva, coloquei também o <span>tw tailwind</span>, uma biblioteca semelhante ao styled components, só que funcionada com o tailwind.</p>
-
-<h2>Guia de uso</h2>
-
-<p>Eu desenvolvi uma <span>CLI</span> própria para que eu possa agilizar certos procedimentos, inclusive a clonagem dos meus modelos. Você pode ver mais a respeito em: <a href="https://www.npmjs.com/package/@lmarcel/cli" target="__blank__">@lmarcel/cli</a></p>
-
-<p>Caso contrário, você acessar o <a href="https://www.github.com/l-marcel/next-start" target="__blank__">repositório</a> quando precisar e clicar em "usar o modelo" (é um botão verde, digo, no meu é verde). Por linha de comando, você pode usar o GitHub CLI:</p>
-
-<pre>
-C:\projects> <span>gh</span> repo create next-start --template l-marcel/next-start --public
-</pre>
+<div id="grid">
+  <div id="grid-item">
+    <h2>O que <span>fiz</span>?</h2>
+    <p>Desenvolvi uma aplicação que permite que as pessoas <span>marquem reuniões</span> em meu tempo livre, o qual contém as seguintes funcionalidades:</p>
+    <ul>
+      <li id="checked"><p>Em processo...</p></li>
+    </ul>
+  </div>
+</div>
