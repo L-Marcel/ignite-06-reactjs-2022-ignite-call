@@ -1,0 +1,16 @@
+{
+  "name": "Template: Next Start",
+  "pinned": true,
+  "translatedDescription": "O template criado e usado por mim para iniciar meus projetos. Este modelo foi projetado para desenvolver aplicações com Next, Tailwind, Headless UI e Typescript. Seguindo a abordagem de estilização: CSS in JS.",
+  "links": {
+    "self": "https://l-marcel-next-start.vercel.app/"
+  },
+  "technologies": [
+    "Next.js",
+    "React.js",
+    "Tailwind",
+    "Sass",
+    "HTML",
+    "CSS"
+  ]
+}

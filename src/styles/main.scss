@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *:focus, *:focus-visible {
+    @apply
+      outline-none
+      ring-2
+      ring-offset-2
+      ring-offset-white
+      ring-zinc-900;
+  }
+
+  html {
+    @apply
+      font-inter;
+  }
+}
