@@ -1,4 +1,4 @@
-import { styled, Box } from "@ignite-ui/react";
+import { styled, Box, Text } from "@ignite-ui/react";
 import tw from "twin.macro";
 
 export const ConnectBox = styled(Box, {
@@ -21,5 +21,12 @@ export const ConnectItem = styled(Box, {
     px-6
     rounded-md
     mb-2
+  `
+});
+
+export const AuthError = styled(Text, {
+  ...tw`
+    text-[#f75a68]
+    mb-4
   `
 });
