@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../../../lib/prisma";
 import { errors } from "../../../errors";
 import { setCookie } from "nookies";
+import prisma from "../../../lib/prisma";
 
 export default async function handler(
   req: NextApiRequest,

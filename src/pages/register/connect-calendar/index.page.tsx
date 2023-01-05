@@ -12,10 +12,13 @@ export default function ConnectCalendar() {
 
   const hasAuthError = !!router.query.error;
   const appWasAuthorized = session.status === "authenticated";
-  console.log(session);
-
+  
   async function handleSignIn() {
     signIn("google");
+  }
+
+  async function handleNavigateToNextStep() {
+    await router.push("/register/time-intervals");
   }
 
   useEffect(() => {
@@ -66,7 +69,7 @@ export default function ConnectCalendar() {
           </AuthError>
         )}
 
-        <Button type="submit" disabled={!appWasAuthorized}>
+        <Button onClick={handleNavigateToNextStep} type="submit" disabled={!appWasAuthorized}>
           Próximo passo
           <ArrowRight/>
         </Button>
