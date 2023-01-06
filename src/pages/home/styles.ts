@@ -4,9 +4,13 @@ import tw from "twin.macro";
 export const Container = styled("div", {
   maxWidth: "calc(100vw - ((100vw - 1162px) / 2))",
   ...tw`
-    h-screen
     flex
-    items-center
+    items-start
+    mt-10
+    h-[calc(100vh_-_2.5rem)]
+    md:mt-0
+    md:h-screen
+    md:items-center
     relative
     gap-20
     ml-auto
@@ -23,7 +27,7 @@ export const Hero = styled("div", {
 
   [`> ${Heading}`]: {
     ...tw`
-      text-heading-3xl
+      text-heading-2xl
       sm:text-heading-4xl
     `
   },

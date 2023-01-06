@@ -6,6 +6,7 @@ import "../lib/dayjs";
 import { queryClient } from "../lib/query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { DefaultSeo } from "next-seo";
+import { Brand } from "../components/Brand";
 
 export default function MyApp({
   Component,
@@ -27,6 +28,7 @@ export default function MyApp({
           }}
         />
         <Component {...pageProps}/>
+        <Brand/>
         <Analytics/>
       </SessionProvider>
     </QueryClientProvider>
