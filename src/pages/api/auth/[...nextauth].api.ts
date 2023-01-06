@@ -23,6 +23,7 @@ export function buildNextAuthOptions(
             id: profile.sub,
             name: profile.name,
             username: "",
+            bio: "",
             email: profile.email,
             avatar_url: profile.picture
           };

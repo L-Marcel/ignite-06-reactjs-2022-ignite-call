@@ -77,7 +77,7 @@ export default function TimeInIntervals() {
     control,
   });
 
-  const weekDays = getWeekDays();
+  const weekDays = getWeekDays({ short: false });
   const intervals = watch("intervals");
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

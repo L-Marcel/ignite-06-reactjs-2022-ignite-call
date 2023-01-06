@@ -2,6 +2,9 @@ import { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 import { putGlobalStyles } from "../styles/global";
 import { SessionProvider } from "next-auth/react";
+import "../lib/dayjs";
+import { queryClient } from "../lib/query";
+import { QueryClientProvider } from "@tanstack/react-query";
 
 export default function MyApp({
   Component,
@@ -12,9 +15,11 @@ export default function MyApp({
 }: AppProps) {
   putGlobalStyles();
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps}/>
-      <Analytics/>
-    </SessionProvider>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider session={session}>
+        <Component {...pageProps}/>
+        <Analytics/>
+      </SessionProvider>
+    </QueryClientProvider>
   );
 }
