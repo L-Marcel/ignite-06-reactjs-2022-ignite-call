@@ -7,8 +7,10 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "../../lib/axios";
 import { useRouter } from "next/router";
 
+
 interface BlockedDates {
   blockedWeekDays: number[];
+  blockedDates: number[];
 }
 
 interface CalendarWeek {
@@ -46,11 +48,11 @@ export function Calendar({
 
   const {
     data: blockedDates
-  } = useQuery<BlockedDates>(["blocked-dates", currentYear, currentMonth], async() => {
+  } = useQuery<BlockedDates>(["blocked-dates", username, currentYear, currentMonth + 1], async() => {
     const response = await api.get<BlockedDates>(`/users/${username}/blocked-dates`, {
       params: {
         year: currentYear,
-        month: currentMonth
+        month: currentMonth + 1
       }
     });
 
@@ -67,7 +69,8 @@ export function Calendar({
     }).map((_, i) => {
       const date = currentDate.set("date", i + 1);
       const disabled = date.endOf("day").isBefore(new Date())
-        || blockedDates.blockedWeekDays.includes(date.get("day"));
+        || blockedDates.blockedWeekDays.includes(date.get("day"))
+        || blockedDates.blockedDates.includes(date.get("date"));
 
       return {
         date,

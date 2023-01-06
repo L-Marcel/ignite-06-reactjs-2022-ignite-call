@@ -36,6 +36,7 @@ export const FormHeader = styled("div", {
     items-center
     gap-4
     pb-6
+    flex-wrap
     mb-2
     border-b-2
     border-solid

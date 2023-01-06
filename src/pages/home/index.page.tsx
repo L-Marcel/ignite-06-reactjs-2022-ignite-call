@@ -5,18 +5,15 @@ import { Container, Hero, Preview } from "./styles";
 import previewImage from "../../assets/app-preview.png";
 import Image from "next/image";
 import { ClaimUserNameForm } from "./components/ClaimUserNameForm";
+import { NextSeo } from "next-seo";
 
 export default function HomePage() {
   return (
-    <Seo 
-      title="Next Start"
-      author="L-Marcel"
-      description={"Modelo para projetos que utilizam Next.js." +
-      "Para facilitar a produção, deixei o tailwind e o typescript" +
-      " — que vejo como necessário — instalados."}
-      sharedUrl="https://l-marcel-next-start.vercel.app/"
-      ogUrl="https://l-marcel-next-start.vercel.app/og.jpg"
-    >
+    <>
+      <NextSeo
+        title="Descomplique sua agenda | Ignite Call"
+        description="Conecte seu calendário e permita que as pessoas marquem agendamentos no seu tempo livre."
+      />
       <Container>
         <Hero>
           <Heading size="4xl">Agendamento descomplicado</Heading>
@@ -33,6 +30,6 @@ export default function HomePage() {
           />
         </Preview>
       </Container>
-    </Seo>
+    </>
   );
 }

@@ -83,9 +83,13 @@ export default async function handler(
 
     const availableTimes = possibleTimes.filter(
       (time) => {
-        return !blockedTimes.some(blockedTimes => {
+        const isTimeBlocked = blockedTimes.some(blockedTimes => {
           return blockedTimes.date.getHours() === time;
         });
+        
+        const isTimeInPast = referenceDate.set("hour", time).isBefore(new Date());
+        
+        return !isTimeBlocked && !isTimeInPast;
       }
     );
 
