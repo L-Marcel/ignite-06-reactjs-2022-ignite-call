@@ -12,7 +12,8 @@ export function putGlobalStyles() {
         p-0
         m-0
       `,
-      ...scrollbar
+      ...scrollbar,
+      overflow: "initial"
     },
   
     "*:focus, *:focus-visible": {
