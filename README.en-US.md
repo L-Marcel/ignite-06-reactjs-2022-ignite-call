@@ -23,7 +23,7 @@
     <h2>What did I <span>do</span>?</h2>
     <p>I developed an app allows people to <span>set up meetings</span> in my spare time, which contains the following features:</p>
     <ul>
-      <li id="checked"><p>In work...</p></li>
+      <li id="checked"><p>In work... It's not finished yet!</p></li>
     </ul>
   </div>
 </div>

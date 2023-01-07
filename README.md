@@ -24,7 +24,7 @@
     <h2>O que <span>fiz</span>?</h2>
     <p>Desenvolvi uma aplicação que permite que as pessoas <span>marquem reuniões</span> em meu tempo livre, o qual contém as seguintes funcionalidades:</p>
     <ul>
-      <li id="checked"><p>Em processo...</p></li>
+      <li id="checked"><p>Em processo... Ainda não está finalizada!</p></li>
     </ul>
   </div>
 </div>
