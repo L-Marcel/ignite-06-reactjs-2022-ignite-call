@@ -49,28 +49,6 @@ export default async function handler(
       });
     }
 
-    const scheduleWeekDay = schedulingDate.get("day");
-    const scheduleHourInMinutes = schedulingDate.startOf("hour").get("hour") * 60;
-    const scheduleUserTimeInterval = await prisma.userIimeInterval.findFirst({
-      where: {
-        user_id: user.id,
-        week_day: scheduleWeekDay,
-        time_end_in_minutes: {
-          gt: scheduleHourInMinutes
-        },
-        time_start_in_minutes: {
-          lte: scheduleHourInMinutes
-        }
-      }
-    });
-
-    const schedulingIsAvailable = scheduleUserTimeInterval;
-    if(!schedulingIsAvailable) {
-      return res.status(400).json({
-        message: "Time is not available."
-      });
-    }
-
     const conflictingScheduling = await prisma.scheduling.findFirst({
       where: {
         user_id: user.id,
