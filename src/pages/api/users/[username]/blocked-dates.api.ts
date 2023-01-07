@@ -82,7 +82,7 @@ export default async function handler(
       SELECT
         (UTI.time_end_in_minutes - 60) as maxStartTimeInMinutes,
         ((HOUR(CURTIME()) - 3) * 60) as currentHourInMinutes,
-        ((UTI.time_end_in_minutes / 60) - 1 - (HOUR(CURTIME()) - 3)) as remains
+        ((UTI.time_end_in_minutes / 60) - (HOUR(CURTIME()) - 3)) as remains
       
       FROM user_time_intervals UTI
 
