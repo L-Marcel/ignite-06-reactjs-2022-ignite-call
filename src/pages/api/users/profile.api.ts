@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { unstable_getServerSession } from "next-auth";
 import { buildNextAuthOptions } from "../auth/[...nextauth].api";
 import { z } from "zod";
+import prisma from "../../../lib/prisma";
 
 const profileFormSchema = z.object({
   bio: z.string()
@@ -31,7 +32,7 @@ export default async function handler(
       bio
     } = profileFormSchema.parse(req.body);
 
-    await prisma?.user.update({
+    await prisma.user.update({
       where: {
         id: session.user.id
       },

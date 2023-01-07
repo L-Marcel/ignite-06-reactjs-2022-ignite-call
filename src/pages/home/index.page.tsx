@@ -6,6 +6,7 @@ import previewImage from "../../assets/app-preview.png";
 import Image from "next/image";
 import { ClaimUserNameForm } from "./components/ClaimUserNameForm";
 import { NextSeo } from "next-seo";
+import { Brand } from "../../components/Brand";
 
 export default function HomePage() {
   return (
@@ -30,6 +31,7 @@ export default function HomePage() {
           />
         </Preview>
       </Container>
+      <Brand/>
     </>
   );
 }
