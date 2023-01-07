@@ -33,3 +33,10 @@
     </ul>
   </div>
 </div>
+
+<div id="grid">
+  <div id="grid-item">
+    <h2>Note:</h2>
+    <p>I tried for hours but I couldn't finish the functionality that checks if the current day is unavailable. By the way, it was a hassle to deal with the data after I noticed that there was a difference between the time zone on Vercel's server and my computer... You probably won't be able to use it if you have a difference greater or less than mine.</p>
+  </div>
+</div>
