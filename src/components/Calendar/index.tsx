@@ -25,7 +25,7 @@ type CalendarWeeks = CalendarWeek[];
 
 interface CalendarProps {
   selectedDate: Date | null;
-  onDateSelected: (date: Date) => void
+  onDateSelected: (date: Date | null) => void
 }
 
 export function Calendar({
@@ -171,13 +171,19 @@ export function Calendar({
             return (
               <tr key={week.week}>
                 {week.days.map(({ date, disabled }, i) => {
+                  const isSelectedDate = dayjs(selectedDate).diff(date, "date") === 0;
+
                   function handleOnDateSelected() {
-                    onDateSelected(date.toDate());
+                    onDateSelected(isSelectedDate? null:date.toDate());
                   }
 
                   return (
                     <td key={`${week.week} - ${i}`}>
-                      <CalendarDay onClick={handleOnDateSelected} disabled={disabled}>
+                      <CalendarDay 
+                        isSelected={isSelectedDate}
+                        onClick={handleOnDateSelected} 
+                        disabled={disabled}
+                      >
                         {date.get("date")}
                       </CalendarDay>
                     </td>

@@ -85,6 +85,7 @@ export const TimePickerList = styled("div", {
     grid-cols-2
     md:grid-cols-1
     gap-2
+    pb-6
   `
 });
 
@@ -100,12 +101,6 @@ export const TimePickerItem = styled("button", {
     text-sm
     leading-base
   `,
-
-  "&:last-child": {
-    ...tw`
-      mb-6
-    `
-  },
 
   "&:disabled": {
     ...tw`

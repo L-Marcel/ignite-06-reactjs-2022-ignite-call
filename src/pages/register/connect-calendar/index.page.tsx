@@ -45,7 +45,7 @@ export default function ConnectCalendar() {
 
         <ConnectBox>
           <ConnectItem>
-            <Text>Google Calendar</Text>
+            <Text>Google Agenda</Text>
             {
               appWasAuthorized? (
                 <Button size="sm" disabled>
@@ -67,7 +67,7 @@ export default function ConnectCalendar() {
 
           {hasAuthError && !appWasAuthorized && (
             <AuthError size="sm">
-              Falha ao se conectar ao Google, verifique se você habilitou as permissões de acesso ao Google Calendar.
+              Falha ao se conectar ao Google, verifique se você habilitou as permissões de acesso ao Google Agenda.
             </AuthError>
           )}
 

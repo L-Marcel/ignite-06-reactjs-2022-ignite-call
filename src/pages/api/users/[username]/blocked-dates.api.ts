@@ -74,27 +74,35 @@ export default async function handler(
       HAVING amount >= size
     `;
 
-    const todayIsBlockedRaw: Array<{
-      todayIsFull: string
+    const blockedTimes: Array<{
+      scheduleHourInMinutes: null | number;
+      currentHourInMinutes: number;
+      maxStartTimeInMinutes: number;
+      currentHours: number;
+      remains: number;
     }> = await prisma.$queryRaw`
       SELECT
-        UTI.time_end_in_minutes,
-        ((HOUR(CURTIME()) - 2) * 60) as currentHours,
-        IF(UTI.time_end_in_minutes
-          <= ((HOUR(CURTIME()) - 2) * 60), 1, 0) 
-            as todayIsFull
+        ((HOUR(S.date) - 3) * 60) as scheduleHourInMinutes,
+        (UTI.time_end_in_minutes - 60) as maxStartTimeInMinutes,
+        ((HOUR(CURTIME()) - 3) * 60) as currentHourInMinutes,
+        ((UTI.time_end_in_minutes / 60) - 1 - (HOUR(CURTIME()) - 3)) as remains
 
       FROM user_time_intervals UTI
-        WHERE UTI.user_id = ${user.id}
-        AND UTI.week_day = 
-          WEEKDAY(DATE_ADD(CURDATE(), INTERVAL 1 DAY))
 
-      GROUP BY todayIsFull, UTI.time_end_in_minutes, currentHours
+      LEFT JOIN schedulings S
+        ON UTI.week_day = WEEKDAY(DATE_ADD(S.date, INTERVAL 1 DAY))    #same week day
+        AND (DAY(DATE_SUB(S.date, INTERVAL 3 HOUR)) = DAY(CURDATE()))  #is current day
+        AND ((HOUR(S.date) - 3) * 60) > ((HOUR(CURTIME()) - 3) * 60)   #is not past
+
+      WHERE UTI.user_id = ${user.id}
+        AND UTI.week_day = WEEKDAY(DATE_ADD(CURDATE(), INTERVAL 1 DAY))
+
+      GROUP BY scheduleHourInMinutes, maxStartTimeInMinutes, currentHourInMinutes, remains
     `;
 
-    const todayIsBlocked = todayIsBlockedRaw.some((item) => {
-      console.log(item);
-      return Boolean(item.todayIsFull);
+    const reservedTimes = blockedTimes.length;
+    const todayIsBlocked = blockedTimes.every((schedule) => {
+      return schedule.remains <= reservedTimes;
     });
 
     const blockedDates = blockedDatesRaw.map((item) => {

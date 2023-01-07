@@ -116,10 +116,15 @@ export const CalendarDay = styled("button", {
     w-[90%]
     aspect-square
     bg-gray-600
+    relative
     text-center
     cursor-pointer
     mx-auto
     rounded-sm
+    
+    md:focus:shadow-[0_0_0_2px]
+    md:focus:shadow-gray-100
+    ring-gray-100
   `,
   
   "&:disabled": {
@@ -135,8 +140,36 @@ export const CalendarDay = styled("button", {
       bg-gray-500
     `
   },
-
-  "&:focus": {
-    boxShadow: `0 0 0 2px ${theme`colors.gray-100`}`
+}, {
+  variants: {
+    isSelected: {
+      true: {
+        "&::after": {
+          content: "",
+          ...tw`
+            md:absolute
+            md:bottom-0
+            md:w-[5px]
+            md:h-[5px]
+            md:rounded-full
+            md:bg-white
+            md:left-0
+            md:right-0
+            md:mt-0
+            md:mx-auto
+            md:mb-2
+            lg:mb-3
+            2xl:mb-4
+          `
+        },
+        
+        ...tw`
+          bg-gray-300
+          text-gray-600
+          md:bg-gray-600
+          md:text-gray-100
+        `
+      }
+    }
   }
 });
