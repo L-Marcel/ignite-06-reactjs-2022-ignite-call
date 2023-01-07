@@ -101,7 +101,7 @@ export default async function handler(
     `;
 
     const reservedTimes = blockedTimes.length;
-    const todayIsBlocked = blockedTimes.every((schedule) => {
+    const todayIsBlocked = reservedTimes > 0 && blockedTimes.every((schedule) => {
       return schedule.remains <= reservedTimes;
     });
 
