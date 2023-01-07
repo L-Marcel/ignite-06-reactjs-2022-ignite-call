@@ -96,10 +96,13 @@ export default async function handler(
       SELECT  
         COUNT(S.date) as amount
         FROM schedulings S
-        WHERE (DAY(DATE_SUB(S.date, INTERVAL 3 HOUR)) = DAY(CURDATE()))  #is current day
-        AND ((HOUR(S.date) - 3) * 60) > ((HOUR(CURTIME()) - 3) * 60)   #is not past
+        WHERE 
+          S.user_id = ${user.id}
+          AND (DAY(DATE_SUB(S.date, INTERVAL 3 HOUR)) = DAY(CURDATE()))  #is current day
+          AND ((HOUR(S.date) - 3) * 60) > ((HOUR(CURTIME()) - 3) * 60) #is not past
     `;
 
+    console.log(schedulesInCurrentDay);
     const todayIsBlocked = blockedTimes.length > 0 && blockedTimes.every((schedule) => {
       return schedule.remains <= schedulesInCurrentDay.amount;
     });
