@@ -112,7 +112,7 @@ export default async function handler(
     });
 
     if(todayIsBlocked) {
-      blockedDates.push(dayjs(new Date()).get("date"));
+      blockedDates.push(dayjs(new Date()).set("hour", 0).get("date"));
     }
 
     return res.status(200).json({
