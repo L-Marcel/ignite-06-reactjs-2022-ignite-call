@@ -81,14 +81,17 @@ export default async function handler(
       }
     });
 
+    console.log("blockedTimes", blockedTimes);
     const availableTimes = possibleTimes.filter(
       (time) => {
         const isTimeBlocked = blockedTimes.some(blockedTimes => {
+          console.log("isTimeBlocked", blockedTimes.date.getHours(), time);
           return blockedTimes.date.getHours() === time;
         });
         
         const isTimeInPast = referenceDate.set("hour", time).isBefore(new Date());
         
+        console.log("isTimeInPast", isTimeInPast);
         return !isTimeBlocked && !isTimeInPast;
       }
     );
