@@ -68,6 +68,10 @@ export default async function handler(
       return startHour + i;
     });
 
+    console.log("referenceDate", referenceDate);
+    console.log("startHour", startHour);
+    console.log("endHour", endHour);
+
     const blockedTimes = await prisma.scheduling.findMany({
       select: {
         date: true
@@ -92,7 +96,7 @@ export default async function handler(
         const currentDate = dayjs(new Date()).subtract(3, "hour");
         const isTimeInPast = referenceDate.set("hour", time).isBefore(currentDate);
         
-        console.log("isTimeInPast", isTimeInPast, referenceDate.set("hour", time).toDate(), currentDate);
+        console.log("isTimeInPast", isTimeBlocked, isTimeInPast, referenceDate.set("hour", time).toDate(), currentDate);
         return !isTimeBlocked && !isTimeInPast;
       }
     );
