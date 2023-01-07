@@ -34,18 +34,22 @@ export default async function handler(
       intervals
     } = timeIntervalsFormSchema.parse(req.body);
 
-    //await prisma?.userIimeInterval.createMany
+    await prisma.userIimeInterval.deleteMany({
+      where: {
+        user_id: session.user?.id
+      }
+    });
 
-    await Promise.all(intervals.map((interval) => {
-      return prisma.userIimeInterval.create({
-        data: {
+    await prisma.userIimeInterval.createMany({
+      data: intervals.map((interval) => {
+        return {
           time_end_in_minutes: interval.endTimeInMinutes,
           time_start_in_minutes: interval.startTimeInMinutes,
           week_day: interval.weekDay,
           user_id: session.user?.id
-        }
-      });
-    }));
+        };
+      })
+    });
 
     return res.status(201).end();
   }
