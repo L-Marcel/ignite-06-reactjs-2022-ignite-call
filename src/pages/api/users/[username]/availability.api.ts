@@ -89,9 +89,10 @@ export default async function handler(
           return blockedTimes.date.getHours() === time;
         });
         
-        const isTimeInPast = referenceDate.set("hour", time).isBefore(new Date());
+        const currentDate = dayjs(new Date()).subtract(3, "hour").startOf("hour");
+        const isTimeInPast = referenceDate.set("hour", time).isBefore(currentDate);
         
-        console.log("isTimeInPast", isTimeInPast, referenceDate.set("hour", time).toDate(), new Date());
+        console.log("isTimeInPast", isTimeInPast, referenceDate.set("hour", time).toDate(), currentDate);
         return !isTimeBlocked && !isTimeInPast;
       }
     );
