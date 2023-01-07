@@ -41,6 +41,8 @@ export default async function handler(
       }
     });
 
+    res.revalidate(`/schedule/${session.user.username}`);
+
     return res.status(204).end();
   }
   default:

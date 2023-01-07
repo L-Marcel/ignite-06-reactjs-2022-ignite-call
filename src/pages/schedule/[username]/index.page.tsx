@@ -29,8 +29,6 @@ export default function Schedule({
     router.push("/register/time-intervals");
   }
 
-  console.log(userIsAuthorized, username, user.username, session);
-
   return (
     <>
       <NextSeo

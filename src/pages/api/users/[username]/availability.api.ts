@@ -84,7 +84,6 @@ export default async function handler(
     const availableTimes = possibleTimes.filter(
       (time) => {
         const isTimeBlocked = blockedTimes.some(blockedTimes => {
-          console.log("isTimeBlocked", blockedTimes.date.getHours(), time);
           return blockedTimes.date.getHours() === time;
         });
         
