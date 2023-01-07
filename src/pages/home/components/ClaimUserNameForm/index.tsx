@@ -44,6 +44,7 @@ export function ClaimUserNameForm() {
     <>
       <Form as="form" onSubmit={handleSubmit(handleClaimUserName)}>
         <TextInput
+          autoComplete="off"
           size="sm"
           prefix="ignite.com/"
           placeholder="usuário"

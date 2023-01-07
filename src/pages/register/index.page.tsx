@@ -113,6 +113,7 @@ export default function Register() {
           <label onClick={handleOnClick} htmlFor="username">
             <Text size="sm">Nome do usuário</Text>
             <TextInput
+              autoComplete="off"
               prefix="ignite.com/"
               placeholder="usuário"
               {...register("username")}
@@ -129,6 +130,7 @@ export default function Register() {
           <label onClick={handleOnClick} htmlFor="name">
             <Text size="sm">Nome completo</Text>
             <TextInput
+              autoComplete="off"
               placeholder="Seu nome"
               {...register("name")}
             />

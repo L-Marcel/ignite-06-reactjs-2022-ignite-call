@@ -73,7 +73,7 @@ export function ConfirmStep({
 
       <label htmlFor="">
         <Text size="sm">Nome completo</Text>
-        <TextInput placeholder="Seu nome" {...register("name")}/>
+        <TextInput autoComplete="off" placeholder="Seu nome" {...register("name")}/>
         {errors.name && <FormError>
           {errors.name?.message}
         </FormError>}
@@ -81,7 +81,7 @@ export function ConfirmStep({
 
       <label htmlFor="">
         <Text size="sm">Endereço de e-mail</Text>
-        <TextInput type="email" placeholder="jonh@example.com" {...register("email")}/>
+        <TextInput autoComplete="off" type="email" placeholder="jonh@example.com" {...register("email")}/>
         {errors.email && <FormError>
           {errors.email?.message}
         </FormError>}

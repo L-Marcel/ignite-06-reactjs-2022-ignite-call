@@ -137,6 +137,7 @@ export default function TimeInIntervals() {
                   </IntervalDay>
                   <IntervalInputs>
                     <TextInput 
+                      autoComplete="off"
                       size="sm" 
                       type="time" 
                       step={60} 
@@ -144,6 +145,7 @@ export default function TimeInIntervals() {
                       {...register(`intervals.${index}.startTime`)}
                     />
                     <TextInput 
+                      autoComplete="off"
                       size="sm" 
                       type="time" 
                       step={60} 
