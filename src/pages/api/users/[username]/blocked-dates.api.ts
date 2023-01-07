@@ -92,7 +92,7 @@ export default async function handler(
       GROUP BY maxStartTimeInMinutes, currentHourInMinutes, remains
     `;
 
-    const schedulesInCurrentDay = await prisma.$queryRaw<{ amount: number; }>`
+    const schedulesInCurrentDay = await prisma.$queryRaw<Array<{ amount: number; }>>`
       SELECT  
         COUNT(S.date) as amount
         FROM schedulings S
@@ -102,9 +102,9 @@ export default async function handler(
           AND ((HOUR(S.date) - 3) * 60) > ((HOUR(CURTIME()) - 3) * 60) #is not past
     `;
 
-    console.log(schedulesInCurrentDay);
+
     const todayIsBlocked = blockedTimes.length > 0 && blockedTimes.every((schedule) => {
-      return schedule.remains <= schedulesInCurrentDay.amount;
+      return schedule.remains <= schedulesInCurrentDay[0].amount;
     });
 
     const blockedDates = blockedDatesRaw.map((item) => {
