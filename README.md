@@ -1,6 +1,6 @@
 <div valing="top">
-  <h1>Modelo: <span>Next Start</span></h1>
-  <p>Usado para criar aplicações feita com o Next.js</p>
+  <h1>Ignite: 06 / <span>2022</span> / React.js / Ignite Call</h1>
+  <p>Um dos projetos da trilha de 2022 de React.js do Ignite</p>
   <nav>
     <div id="repository-buttons"/>
     <a class="navigation-link disabled" href="https://github.com/L-Marcel/ignite-06-reactjs-2022-ignite-call/blob/main/README.en-US.md" target="__blank__">
