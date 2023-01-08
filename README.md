@@ -22,7 +22,7 @@
 <div id="grid">
   <div id="grid-item">
     <h2>O que <span>fiz</span>?</h2>
-    <p>Desenvolvi uma aplicação que permite que as pessoas <span>marquem reuniões</span> em meu tempo livre, o qual contém as seguintes funcionalidades:</p>
+    <p>Desenvolvi uma aplicação que permite que as pessoas <span>marquem reuniões</span> em meu tempo livre, a qual contém as seguintes funcionalidades:</p>
     <ul>
       <li id="checked"><p>Registrar novo usuário no banco de dados;</p></li>
       <li id="checked"><p>Víncular a conta do <span>Google</span> do usuário;</p></li>
