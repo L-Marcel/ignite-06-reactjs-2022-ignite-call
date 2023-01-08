@@ -84,10 +84,10 @@ export default async function handler(
         summary: `Ignite Call: ${name}`,
         description: observations,
         start: {
-          dateTime: schedulingDate.format()
+          dateTime: schedulingDate.add(3, "hour").format()
         },
         end: {
-          dateTime: schedulingDate.add(1, "hour").format()
+          dateTime: schedulingDate.add(4, "hour").format()
         },
         attendees: [
           { email, displayName: name }
